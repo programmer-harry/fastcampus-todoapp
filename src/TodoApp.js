@@ -27,8 +27,8 @@ class TodoApp {
 
   createTodoEl(todo, id) {
     const todoEl = document.createElement("div");
-    todoEl.id = "todo-" + id;
-    todoEl.innerHTML = '<input type="checkbox" ' + ((todo.done) ? 'checked' : '') + '> <label>' + todo.contents + '</label>';
+    todoEl.id = `todo-${id}`;
+    todoEl.innerHTML = `<input type="checkbox" ${((todo.done) ? 'checked' : '')}> <label>${todo.contents}</label>`;
     todoEl.className = 'todo';
     this.todoElMap.set(todoEl, todo);
     return todoEl;
@@ -42,7 +42,7 @@ class TodoApp {
   renderTitle() {
     const now = new Date();
     if (this.titleEl)
-      this.titleEl.innerHTML = (now.getMonth() + 1) + '월 ' + now.getDate() + '일 <span class="left-count">(' + this.todosManager.leftTodoCount + '개)</span>';
+      this.titleEl.innerHTML = `${(now.getMonth() + 1)}월 ${now.getDate()}일 <span class="left-count">(${this.todosManager.leftTodoCount}개)</span>`;
   }
 
   bindEvents() {
